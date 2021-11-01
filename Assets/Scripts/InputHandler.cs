@@ -11,11 +11,24 @@ using UnityEngine;
         public float mouseX;
         public float mouseY;
         PlayerControls inputActions;
+    CameraHandler cameraHandler;
 
         Vector2 movementInput;
         Vector2 camerInput;
-
-        public void OnEnable()
+    private void Awake()
+    {
+        cameraHandler = CameraHandler.singleton;
+    }
+    private void FixedUpdate()
+    {
+        float delta = Time.fixedDeltaTime;
+        if (cameraHandler != null)
+        {
+            cameraHandler.FollowTarget(delta);
+            cameraHandler.HandleCameraRotation(delta, mouseX, mouseY);
+        }
+    }
+    public void OnEnable()
         {
             if (inputActions == null)
             {
