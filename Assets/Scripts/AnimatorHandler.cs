@@ -13,7 +13,7 @@ public class AnimatorHandler : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         inputHandler.GetComponentInParent<InputHandler>();
-        playerLocomotive = GetComponent<PlayerLocomotive>();
+        playerLocomotive = GetComponentInParent<PlayerLocomotive>();
         vertical = Animator.StringToHash("Vertical");
         horizontal = Animator.StringToHash("Horizontal");
 
