@@ -5,16 +5,20 @@ public class AnimatorHandler : MonoBehaviour
     public Animator anim;
     int vertical;
     int horizontal;
+    public InputHandler inputHandler;
+    public PlayerLocomotive playerLocomotive;
 
     public bool canRotate;
     public void Inizialize()
     {
         anim = GetComponent<Animator>();
+        inputHandler.GetComponentInParent<InputHandler>();
+        playerLocomotive = GetComponent<PlayerLocomotive>();
         vertical = Animator.StringToHash("Vertical");
         horizontal = Animator.StringToHash("Horizontal");
 
     }
-    public void UpdateAnimatorValues(float verticalMovement, float horizontalMovement)
+    public void UpdateAnimatorValues(float verticalMovement, float horizontalMovement, bool isSprinting)
     {
         #region Vertical
         float v = 0;
@@ -65,10 +69,22 @@ public class AnimatorHandler : MonoBehaviour
         }
         #endregion
 
+        if(isSprinting)
+        {
+            v = 2;
+            h = horizontalMovement;
+
+        }
         anim.SetFloat(vertical, v, 0.1f, Time.deltaTime);
         anim.SetFloat(horizontal, h, 0.1f, Time.deltaTime);
     }
 
+    public void PlayTargetAnimation(string targetAnim, bool isInteracting)
+    {
+        anim.applyRootMotion = isInteracting;
+        anim.SetBool("isInteracting", isInteracting);
+        anim.CrossFade(targetAnim, 0.2f);
+    }
     public void CanRotate()
     {
         canRotate = true;
@@ -76,5 +92,19 @@ public class AnimatorHandler : MonoBehaviour
     public void StopRotation()
     {
         canRotate = false;
+    }
+
+    private void OnAnimatorMove()
+    {
+        if(inputHandler.isInteracting == false)
+        {
+            return;
+        }
+        float delta = Time.deltaTime;
+        playerLocomotive.rigidbody.drag = 0;
+        Vector3 deltaPosition = anim.deltaPosition;
+        deltaPosition.y = 0;
+        Vector3 velocity = deltaPosition / delta;
+        playerLocomotive.rigidbody.velocity = velocity;
     }
 }
