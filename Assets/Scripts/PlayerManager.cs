@@ -43,6 +43,8 @@ public class PlayerManager : MonoBehaviour
         {
             playerLocomotive.inAirTimer = playerLocomotive.inAirTimer + Time.deltaTime;
         }
+        inputHandler.rb_Input = false;
+        inputHandler.rt_Input = false;
     }
 
 }

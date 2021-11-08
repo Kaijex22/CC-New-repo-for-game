@@ -110,7 +110,7 @@ using UnityEngine;
             moveDirection.y = 0;
             float speed = movementSpeed;
 
-        if (inputHandler.sprintFlag)
+        if (inputHandler.sprintFlag && inputHandler.moveAmount > 0.5)
         {
             speed = sprintSpeed;
             isSpritning = true;
@@ -119,6 +119,7 @@ using UnityEngine;
         else
         {
             moveDirection *= speed;
+            isSpritning = false;
         }
             
 
