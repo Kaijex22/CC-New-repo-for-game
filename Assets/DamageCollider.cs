@@ -6,7 +6,7 @@ public class DamageCollider : MonoBehaviour
 {
     Collider damageCollider;
     PlayerStats playerStats;
-    public int currentWeaponDamage = 25;
+    public int currentWeaponDamage = 100;
     private void Awake()
     {
         playerStats = GetComponent<PlayerStats>();

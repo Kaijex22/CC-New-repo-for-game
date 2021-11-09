@@ -35,7 +35,7 @@ public class EnemyStats : MonoBehaviour
     {
         currentHealth = currentHealth - damage;
 
-        
+        Debug.Log("hes taken damagae");
 
         animator.Play("Damage_01");
 
