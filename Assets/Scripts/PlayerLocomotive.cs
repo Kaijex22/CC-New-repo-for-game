@@ -233,8 +233,24 @@ using UnityEngine;
                 myTransform.position = targetPostition;
             }
         }
+        if (inputHandler.isInteracting || inputHandler.moveAmount > 0)
+        {
+            myTransform.position = Vector3.Lerp(myTransform.position, targetPostition, Time.deltaTime / 0.1f);
+        }
+        else
+        {
+            myTransform.position = targetPostition;
+        }
+        if (inputHandler.isInteracting || inputHandler.moveAmount > 0)
+        {
+            myTransform.position = Vector3.Lerp(myTransform.position, targetPostition, Time.deltaTime / 0.1f);
+        }
+        else
+        {
+            myTransform.position = targetPostition;
+        }
     }
-
+    
 
 
     #endregion

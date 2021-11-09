@@ -35,6 +35,7 @@ public class CameraHandler : MonoBehaviour
         singleton = this;
         myTransform = transform;
         defaultPosition = cameraTransform.localPosition.z;
+        
 
     }
     public void FollowTarget(float delta)
