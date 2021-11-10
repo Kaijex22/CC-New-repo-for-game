@@ -190,6 +190,90 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Inventory"",
+            ""id"": ""56a463f3-5751-47bd-bd99-9c64e45f0621"",
+            ""actions"": [
+                {
+                    ""name"": ""D-Pad Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""8fd54889-c86b-4fed-87ab-33d112a3b78e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""D-Pad Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ac40630-4838-492d-adec-adff831d6aaa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""D-Pad Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""d2228138-3fdb-454f-8af3-5ac146eeb3ef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""D-Pad Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""2e3c370d-07d4-4d38-8847-5425297d408d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2d1a98d9-2f37-4038-b62e-29200a083596"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D-Pad Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ada0d3e-9083-46ba-b11c-a20a808892f8"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D-Pad Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""301c3536-fdf3-4fb6-9c58-ffd22402ba37"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D-Pad Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1cd581ee-84ce-418c-919b-a8b0aeef8b26"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D-Pad Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -203,6 +287,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerActions_Roll = m_PlayerActions.FindAction("Roll", throwIfNotFound: true);
         m_PlayerActions_RB = m_PlayerActions.FindAction("RB", throwIfNotFound: true);
         m_PlayerActions_RT = m_PlayerActions.FindAction("RT", throwIfNotFound: true);
+        // Inventory
+        m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
+        m_Inventory_DPadUp = m_Inventory.FindAction("D-Pad Up", throwIfNotFound: true);
+        m_Inventory_DPadDown = m_Inventory.FindAction("D-Pad Down", throwIfNotFound: true);
+        m_Inventory_DPadLeft = m_Inventory.FindAction("D-Pad Left", throwIfNotFound: true);
+        m_Inventory_DPadRight = m_Inventory.FindAction("D-Pad Right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -338,6 +428,63 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public PlayerActionsActions @PlayerActions => new PlayerActionsActions(this);
+
+    // Inventory
+    private readonly InputActionMap m_Inventory;
+    private IInventoryActions m_InventoryActionsCallbackInterface;
+    private readonly InputAction m_Inventory_DPadUp;
+    private readonly InputAction m_Inventory_DPadDown;
+    private readonly InputAction m_Inventory_DPadLeft;
+    private readonly InputAction m_Inventory_DPadRight;
+    public struct InventoryActions
+    {
+        private @PlayerControls m_Wrapper;
+        public InventoryActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @DPadUp => m_Wrapper.m_Inventory_DPadUp;
+        public InputAction @DPadDown => m_Wrapper.m_Inventory_DPadDown;
+        public InputAction @DPadLeft => m_Wrapper.m_Inventory_DPadLeft;
+        public InputAction @DPadRight => m_Wrapper.m_Inventory_DPadRight;
+        public InputActionMap Get() { return m_Wrapper.m_Inventory; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InventoryActions set) { return set.Get(); }
+        public void SetCallbacks(IInventoryActions instance)
+        {
+            if (m_Wrapper.m_InventoryActionsCallbackInterface != null)
+            {
+                @DPadUp.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadUp;
+                @DPadUp.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadUp;
+                @DPadUp.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadUp;
+                @DPadDown.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadDown;
+                @DPadDown.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadDown;
+                @DPadDown.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadDown;
+                @DPadLeft.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadLeft;
+                @DPadLeft.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadLeft;
+                @DPadLeft.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadLeft;
+                @DPadRight.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadRight;
+                @DPadRight.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadRight;
+                @DPadRight.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDPadRight;
+            }
+            m_Wrapper.m_InventoryActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @DPadUp.started += instance.OnDPadUp;
+                @DPadUp.performed += instance.OnDPadUp;
+                @DPadUp.canceled += instance.OnDPadUp;
+                @DPadDown.started += instance.OnDPadDown;
+                @DPadDown.performed += instance.OnDPadDown;
+                @DPadDown.canceled += instance.OnDPadDown;
+                @DPadLeft.started += instance.OnDPadLeft;
+                @DPadLeft.performed += instance.OnDPadLeft;
+                @DPadLeft.canceled += instance.OnDPadLeft;
+                @DPadRight.started += instance.OnDPadRight;
+                @DPadRight.performed += instance.OnDPadRight;
+                @DPadRight.canceled += instance.OnDPadRight;
+            }
+        }
+    }
+    public InventoryActions @Inventory => new InventoryActions(this);
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -348,5 +495,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnRoll(InputAction.CallbackContext context);
         void OnRB(InputAction.CallbackContext context);
         void OnRT(InputAction.CallbackContext context);
+    }
+    public interface IInventoryActions
+    {
+        void OnDPadUp(InputAction.CallbackContext context);
+        void OnDPadDown(InputAction.CallbackContext context);
+        void OnDPadLeft(InputAction.CallbackContext context);
+        void OnDPadRight(InputAction.CallbackContext context);
     }
 }
