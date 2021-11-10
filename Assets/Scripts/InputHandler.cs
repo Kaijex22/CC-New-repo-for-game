@@ -16,6 +16,8 @@ public class InputHandler : MonoBehaviour
         public bool rt_Input;
     public bool rollFlag;
     public bool sprintFlag;
+
+    public bool comboFlag;
     public float rollInputTimer;
     public bool isInteracting;
 
@@ -23,6 +25,7 @@ public class InputHandler : MonoBehaviour
     CameraHandler cameraHandler;
     PlayerAttacker playerAttacker;
     PlayerInventory playerInventory;
+    PlayerManager playerManager;
 
     Vector2 movementInput;
     Vector2 camerInput;
@@ -31,6 +34,7 @@ public class InputHandler : MonoBehaviour
         cameraHandler = CameraHandler.singleton;
         playerAttacker = GetComponent<PlayerAttacker>();
         playerInventory = GetComponent<PlayerInventory>();
+        playerManager = GetComponent<PlayerManager>();
     }
     private void FixedUpdate()
     {
@@ -97,7 +101,26 @@ public class InputHandler : MonoBehaviour
 
         if (rb_Input)
         {
-            playerAttacker.HandleLightAttack(playerInventory.rightWeapon);
+
+            if (playerManager.canDoCombo)
+            {
+                comboFlag = true;
+                playerAttacker.HandleWeaponCombo(playerInventory.rightWeapon);
+                comboFlag = false;
+            }
+            else
+            {
+                if (isInteracting)
+                {
+                    return;
+                }
+                if (playerManager.canDoCombo)
+                {
+                    return;
+                }
+                playerAttacker.HandleLightAttack(playerInventory.rightWeapon);
+            }
+           
         }
         if (rt_Input)
         {

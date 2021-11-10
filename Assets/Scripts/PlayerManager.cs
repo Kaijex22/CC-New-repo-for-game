@@ -11,6 +11,8 @@ public class PlayerManager : MonoBehaviour
     public bool isGrounded;
     PlayerLocomotive playerLocomotive;
 
+    public bool canDoCombo;
+
 
   
     // Start is called before the first frame update
@@ -32,6 +34,8 @@ public class PlayerManager : MonoBehaviour
         inputHandler.rollFlag = false;
         inputHandler.sprintFlag = false;
         playerLocomotive.HandleFalling(delta, playerLocomotive.moveDirection);
+
+        canDoCombo = anim.GetBool("canDoCombo");
       
 
 
