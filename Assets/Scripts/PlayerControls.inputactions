@@ -129,6 +129,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "a_Input",
+                    "type": "Button",
+                    "id": "73a86a36-d016-4430-864f-242dd9296548",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -173,6 +181,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b91db6e-4133-42e3-b52f-9833c9fec98a",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "a_Input",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

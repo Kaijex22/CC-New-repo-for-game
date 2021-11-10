@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     public bool isInAir;
     public bool isGrounded;
     PlayerLocomotive playerLocomotive;
+    CameraHandler cameraHandler;
 
     public bool canDoCombo;
 
@@ -22,21 +23,21 @@ public class PlayerManager : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         playerLocomotive = GetComponent<PlayerLocomotive>();
         
-        
     }
 
     // Update is called once per frame
     void Update()
     {
         float delta = Time.fixedDeltaTime;
-
+        canDoCombo = anim.GetBool("canDoCombo");
         inputHandler.isInteracting = anim.GetBool("isInteracting");
         inputHandler.rollFlag = false;
         inputHandler.sprintFlag = false;
         playerLocomotive.HandleFalling(delta, playerLocomotive.moveDirection);
 
-        canDoCombo = anim.GetBool("canDoCombo");
-      
+
+        CheckForInteractableObject();
+
 
 
     }
@@ -53,6 +54,29 @@ public class PlayerManager : MonoBehaviour
         inputHandler.d_Pad_Down = false;
         inputHandler.d_Pad_Left = false;
         inputHandler.d_Pad_Right = false;
+        inputHandler.a_Input = false;
     }
+    public void CheckForInteractableObject()
+    {
+        RaycastHit hit;
 
+        if(Physics.SphereCast(transform.position, 0.4f, transform.forward, out hit, 1f, cameraHandler.ignoreLayers))
+        {
+            if(hit.collider.tag == "Interactable")
+            {
+                Interactable interactableObject = hit.collider.GetComponent<Interactable>();
+                if(interactableObject != null)
+                {
+                    string interactableText = interactableObject.interactableText;
+
+
+
+                    if (inputHandler.a_Input)
+                    {
+                        hit.collider.GetComponent<Interactable>().Interact(this);
+                    }
+                }
+            }
+        }
+    }
 }

@@ -142,6 +142,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""a_Input"",
+                    ""type"": ""Button"",
+                    ""id"": ""73a86a36-d016-4430-864f-242dd9296548"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -186,6 +194,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b91db6e-4133-42e3-b52f-9833c9fec98a"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""a_Input"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -287,6 +306,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerActions_Roll = m_PlayerActions.FindAction("Roll", throwIfNotFound: true);
         m_PlayerActions_RB = m_PlayerActions.FindAction("RB", throwIfNotFound: true);
         m_PlayerActions_RT = m_PlayerActions.FindAction("RT", throwIfNotFound: true);
+        m_PlayerActions_a_Input = m_PlayerActions.FindAction("a_Input", throwIfNotFound: true);
         // Inventory
         m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
         m_Inventory_DPadUp = m_Inventory.FindAction("D-Pad Up", throwIfNotFound: true);
@@ -386,6 +406,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerActions_Roll;
     private readonly InputAction m_PlayerActions_RB;
     private readonly InputAction m_PlayerActions_RT;
+    private readonly InputAction m_PlayerActions_a_Input;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -393,6 +414,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Roll => m_Wrapper.m_PlayerActions_Roll;
         public InputAction @RB => m_Wrapper.m_PlayerActions_RB;
         public InputAction @RT => m_Wrapper.m_PlayerActions_RT;
+        public InputAction @a_Input => m_Wrapper.m_PlayerActions_a_Input;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -411,6 +433,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @RT.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRT;
                 @RT.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRT;
                 @RT.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRT;
+                @a_Input.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnA_Input;
+                @a_Input.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnA_Input;
+                @a_Input.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnA_Input;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -424,6 +449,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @RT.started += instance.OnRT;
                 @RT.performed += instance.OnRT;
                 @RT.canceled += instance.OnRT;
+                @a_Input.started += instance.OnA_Input;
+                @a_Input.performed += instance.OnA_Input;
+                @a_Input.canceled += instance.OnA_Input;
             }
         }
     }
@@ -495,6 +523,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnRoll(InputAction.CallbackContext context);
         void OnRB(InputAction.CallbackContext context);
         void OnRT(InputAction.CallbackContext context);
+        void OnA_Input(InputAction.CallbackContext context);
     }
     public interface IInventoryActions
     {
