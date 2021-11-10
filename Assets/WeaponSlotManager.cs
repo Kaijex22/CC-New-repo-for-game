@@ -10,12 +10,16 @@ public class WeaponSlotManager : MonoBehaviour
     DamageCollider leftHandDamageCollider;
     DamageCollider rightHandDamageCollider;
 
+    public WeaponItem attackingWeapon;
     QuickSlotsUi quickSlotsUi;
+
+    PlayerStats playerStats;
 
     private void Awake()
     {
         quickSlotsUi = FindObjectOfType<QuickSlotsUi>();
         WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
+        playerStats = GetComponentInParent<PlayerStats>();
         foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
         {
             if (weaponSlot.isLeftHandSlot)
@@ -64,6 +68,16 @@ public class WeaponSlotManager : MonoBehaviour
     public void CloseRightHandDamageCollider()
     {
         rightHandDamageCollider.DisableDamageCollider();
+    }
+    #endregion
+    #region Handle Weapon Stamina Drainage
+    public void DrainStaminaLightAttack()
+    {
+        playerStats.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.lightAttackMultiplier));
+    }
+    public void DrainStaminaHeavyAttack()
+    {
+        playerStats.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.heavyAttackMultiplier));
     }
     #endregion
 }

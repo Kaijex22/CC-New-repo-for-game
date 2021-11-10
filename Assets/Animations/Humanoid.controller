@@ -297,7 +297,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: OH_Heavy_Attack_01
-  m_Speed: 1
+  m_Speed: 1.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 3377569186305514926}
@@ -606,7 +606,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: OH_Light_Attack_01
-  m_Speed: 1
+  m_Speed: 1.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5981828173901751920}
@@ -1039,10 +1039,10 @@ AnimatorStateMachine:
     m_Position: {x: 505.58054, y: 561.28815, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6461611831230817049}
-    m_Position: {x: 740.87683, y: 432.55057, z: 0}
+    m_Position: {x: 750, y: 450, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1157911802832975572}
-    m_Position: {x: 740.87683, y: 384.74966, z: 0}
+    m_Position: {x: 740, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1632412451489623185}
     m_Position: {x: 826.5201, y: 238.35942, z: 0}
