@@ -57,6 +57,7 @@ public class PlayerManager : MonoBehaviour
         inputHandler.d_Pad_Right = false;
         inputHandler.a_Input = false;
         inputHandler.jump_input = false;
+        inputHandler.inventory_Input = false;
     }
     public void CheckForInteractableObject()
     {
