@@ -137,6 +137,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "jump_Input",
+                    "type": "Button",
+                    "id": "401055e2-5624-4dd9-95d3-51ec5d9bcfb6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -187,11 +195,22 @@
                 {
                     "name": "",
                     "id": "8b91db6e-4133-42e3-b52f-9833c9fec98a",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "a_Input",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18c28403-5c62-411a-a341-5cef3592dd6f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "jump_Input",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

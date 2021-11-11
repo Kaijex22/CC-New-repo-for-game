@@ -9,6 +9,7 @@ public class WeaponPickUp : Interactable
     public override void Interact(PlayerManager playerManager)
     {
         base.Interact(playerManager);
+        Debug.Log("You picked up an objectt");
         PickUpItem(playerManager);
     }
 
@@ -17,6 +18,7 @@ public class WeaponPickUp : Interactable
         PlayerInventory playerInventory;
         PlayerLocomotive playerLocomotive;
         AnimatorHandler animatorHandler;
+
         playerLocomotive = GetComponent<PlayerLocomotive>();
         playerInventory = GetComponent<PlayerInventory>();
         animatorHandler = GetComponentInChildren<AnimatorHandler>();
@@ -24,6 +26,7 @@ public class WeaponPickUp : Interactable
         playerLocomotive.rigidbody.velocity = Vector3.zero; // stops thje player from moving whilst pickiong up
         animatorHandler.PlayTargetAnimation("Pick Up Item", true);
         playerInventory.weaponsInventory.Add(weapon);
+        Debug.Log("You picked up an objectt");
         Destroy(gameObject);
     }
 } 

@@ -150,6 +150,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""jump_Input"",
+                    ""type"": ""Button"",
+                    ""id"": ""401055e2-5624-4dd9-95d3-51ec5d9bcfb6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -200,11 +208,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8b91db6e-4133-42e3-b52f-9833c9fec98a"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""a_Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18c28403-5c62-411a-a341-5cef3592dd6f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""jump_Input"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -307,6 +326,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerActions_RB = m_PlayerActions.FindAction("RB", throwIfNotFound: true);
         m_PlayerActions_RT = m_PlayerActions.FindAction("RT", throwIfNotFound: true);
         m_PlayerActions_a_Input = m_PlayerActions.FindAction("a_Input", throwIfNotFound: true);
+        m_PlayerActions_jump_Input = m_PlayerActions.FindAction("jump_Input", throwIfNotFound: true);
         // Inventory
         m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
         m_Inventory_DPadUp = m_Inventory.FindAction("D-Pad Up", throwIfNotFound: true);
@@ -407,6 +427,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerActions_RB;
     private readonly InputAction m_PlayerActions_RT;
     private readonly InputAction m_PlayerActions_a_Input;
+    private readonly InputAction m_PlayerActions_jump_Input;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -415,6 +436,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @RB => m_Wrapper.m_PlayerActions_RB;
         public InputAction @RT => m_Wrapper.m_PlayerActions_RT;
         public InputAction @a_Input => m_Wrapper.m_PlayerActions_a_Input;
+        public InputAction @jump_Input => m_Wrapper.m_PlayerActions_jump_Input;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -436,6 +458,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @a_Input.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnA_Input;
                 @a_Input.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnA_Input;
                 @a_Input.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnA_Input;
+                @jump_Input.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnJump_Input;
+                @jump_Input.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnJump_Input;
+                @jump_Input.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnJump_Input;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -452,6 +477,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @a_Input.started += instance.OnA_Input;
                 @a_Input.performed += instance.OnA_Input;
                 @a_Input.canceled += instance.OnA_Input;
+                @jump_Input.started += instance.OnJump_Input;
+                @jump_Input.performed += instance.OnJump_Input;
+                @jump_Input.canceled += instance.OnJump_Input;
             }
         }
     }
@@ -524,6 +552,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnRB(InputAction.CallbackContext context);
         void OnRT(InputAction.CallbackContext context);
         void OnA_Input(InputAction.CallbackContext context);
+        void OnJump_Input(InputAction.CallbackContext context);
     }
     public interface IInventoryActions
     {

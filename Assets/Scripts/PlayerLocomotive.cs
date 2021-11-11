@@ -250,8 +250,25 @@ using UnityEngine;
             myTransform.position = targetPostition;
         }
     }
-    
+    public void HandleJumping()
+    {
+        if (inputHandler.isInteracting)
+            return;
+        if (inputHandler.jump_input)
+        {
+            if(inputHandler.moveAmount > 0)
+            {
+                moveDirection = cameraObject.forward * inputHandler.verticle;
+                moveDirection += cameraObject.right * inputHandler.horizontal;
+                animatorHandler.PlayTargetAnimation("Jump", false);
+                moveDirection.y = 0;
+                Quaternion jumpRotation = Quaternion.LookRotation(moveDirection);
+                myTransform.rotation = jumpRotation;
+            }
+        }
+    }
 
 
     #endregion
+
 }
