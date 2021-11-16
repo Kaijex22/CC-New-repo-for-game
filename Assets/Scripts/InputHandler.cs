@@ -17,6 +17,7 @@ public class InputHandler : MonoBehaviour
     public bool rt_Input;
     public bool jump_input;
     public bool inventory_Input;
+    public bool lockOnInput;
 
     public bool d_Pad_Up;
     public bool d_Pad_Down;
@@ -26,6 +27,7 @@ public class InputHandler : MonoBehaviour
     public bool rollFlag;
     public bool sprintFlag;
     public bool comboFlag;
+    public bool lockOnFlag;
     public bool inventoryFlag;
 
 
@@ -65,7 +67,9 @@ public class InputHandler : MonoBehaviour
             inputActions = new PlayerControls();
             inputActions.PlayerMovement.Movement.performed += inputActions => movementInput = inputActions.ReadValue<Vector2>();
             inputActions.PlayerMovement.Camera.performed += i => camerInput = i.ReadValue<Vector2>();
+            inputActions.PlayerActions.LockOn.performed += i => lockOnInput = true;
         }
+
         inputActions.Enable();
     }
 
@@ -82,6 +86,7 @@ public class InputHandler : MonoBehaviour
         HandleInteractableButtonInput();
         HandleJumpInput();
         HandleInventoryInput();
+        HandleLockOnInput();
     }
     public void MoveInput(float delta)
     {
@@ -191,6 +196,28 @@ public class InputHandler : MonoBehaviour
                 uIManager.CloseAllInventoryWindows();
                 uIManager.hudWindow.SetActive(true);
             }
+        }
+    }
+
+    private void HandleLockOnInput()
+    {
+        if(lockOnInput && lockOnFlag == false)
+        {
+            lockOnInput = false;
+            lockOnFlag = true;
+            
+            cameraHandler.HandleLockOn();
+            if(cameraHandler.nearestLockOnTarget != null)
+            {
+                cameraHandler.currentLockOnTarget = cameraHandler.nearestLockOnTarget;
+                lockOnFlag = true;
+            }
+        }
+        else if (lockOnInput && lockOnFlag)
+        {
+            lockOnInput = false;
+            lockOnFlag = false;
+            // clear lock on targets
         }
     }
 }
