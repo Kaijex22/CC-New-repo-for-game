@@ -6,6 +6,9 @@ public class UIManager : MonoBehaviour
 {
     [Header("UI Windows")]
     public PlayerInventory playerInventory;
+    EquipmentWindowUi equipmentWindowUi;
+
+    [Header("UI Windows")]
     public GameObject selectWindow;
     public GameObject hudWindow;
     public GameObject weaponInventoryWindow;
@@ -15,9 +18,14 @@ public class UIManager : MonoBehaviour
     public Transform weaponInventorySlotsParent;
     WeaponInventorySlot[] weaponInventorySlots;
 
+    private void Awake()
+    {
+        equipmentWindowUi = FindObjectOfType<EquipmentWindowUi>();
+    }
     private void Start()
     {
         weaponInventorySlots = weaponInventorySlotsParent.GetComponentInChildren<WeaponInventorySlot[]>();
+        equipmentWindowUi.LoadWeaponsOnEquipmentScreen(playerInventory);
     }
     public void UpdateUI()
     {
