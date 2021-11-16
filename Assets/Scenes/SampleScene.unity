@@ -5316,13 +5316,13 @@ GameObject:
   m_Component:
   - component: {fileID: 806360393}
   - component: {fileID: 806360395}
-  - component: {fileID: 806360398}
   - component: {fileID: 806360396}
   - component: {fileID: 806360397}
   - component: {fileID: 806360399}
   - component: {fileID: 806360400}
   - component: {fileID: 806360401}
   - component: {fileID: 806360394}
+  - component: {fileID: 806360398}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5424,7 +5424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: {x: 0, y: 0, z: 0}
-  playerManager: {fileID: 806360398}
+  playerManager: {fileID: 0}
   myTransform: {fileID: 0}
   animatorHandler: {fileID: 0}
   rigidbody: {fileID: 0}
@@ -5455,7 +5455,7 @@ MonoBehaviour:
   isGrounded: 0
   cameraHandler: {fileID: 597537502}
   canDoCombo: 0
-  interactableUiGameObject: {fileID: 1358110262}
+  interactableUiGameObject: {fileID: 0}
 --- !u!114 &806360399
 MonoBehaviour:
   m_ObjectHideFlags: 0
