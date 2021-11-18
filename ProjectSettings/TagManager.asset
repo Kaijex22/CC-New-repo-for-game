@@ -7,6 +7,9 @@ TagManager:
   - Hittable
   - Enemy
   - Interactable
+  - Waypoint
+  - Destructible
+  - Breadcrumb
   layers:
   - Default
   - TransparentFX
@@ -16,12 +19,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - detectionLayer
-  - Controller
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Breadcrumb
+  - Waypoint
+  - Bullet
+  - Spit
   - 
   - 
   - 

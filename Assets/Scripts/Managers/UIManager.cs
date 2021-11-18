@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-        weaponInventorySlots = weaponInventorySlotsParent.GetComponentInChildren<WeaponInventorySlot[]>();
+        weaponInventorySlots = weaponInventorySlotsParent.GetComponentInChildren <WeaponInventorySlot[]>();
         equipmentWindowUi.LoadWeaponsOnEquipmentScreen(playerInventory);
     }
     public void UpdateUI()
