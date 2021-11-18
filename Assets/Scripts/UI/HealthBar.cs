@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthBar : MonoBehaviour
 {
@@ -16,5 +17,14 @@ public class HealthBar : MonoBehaviour
     public void SetCurrentHealth(int currentHealth)
     {
         slider.value = currentHealth;
+    }
+
+    public void Death(int currentHealth)
+    {
+        if (currentHealth == 0)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+
     }
 }

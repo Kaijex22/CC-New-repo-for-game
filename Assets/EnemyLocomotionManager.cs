@@ -25,13 +25,14 @@ public class EnemyLocomotionManager : MonoBehaviour
         enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
         navMeshAgent = GetComponentInChildren<NavMeshAgent>();
         enemyRigidBody = GetComponent<Rigidbody>();
+        
     }
 
     private void Start()
     {
         navMeshAgent.enabled = false;
         enemyRigidBody.isKinematic = false;
-        HandleMoveToTarget();
+        
     }
     public void HandleDetection()
     {
@@ -40,14 +41,14 @@ public class EnemyLocomotionManager : MonoBehaviour
         {
             CharacterStats characterStats = colliders[i].transform.GetComponent<CharacterStats>();
 
-            if(characterStats != null)
+            if (characterStats != null)
             {
                 // CHECK FOR TEAM ID
 
                 Vector3 targetDirection = characterStats.transform.position - transform.position;
                 float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
 
-                if(viewableAngle> enemyManager.minimumDetectionAngle && viewableAngle < enemyManager.maximumDetectionAngle)
+                if (viewableAngle > enemyManager.minimumDetectionAngle && viewableAngle < enemyManager.maximumDetectionAngle)
                 {
                     currentTarget = characterStats;
                 }
@@ -57,10 +58,12 @@ public class EnemyLocomotionManager : MonoBehaviour
 
     public void HandleMoveToTarget()
     {
+        
         Vector3 targetDirection = currentTarget.transform.position - transform.position;
         distanceFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
         float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
 
+        //IF WE ARE PERFORMING AN ACTION STOP OUR MOVEMENT
         if (enemyManager.isPerformingAction)
         {
             enemyAnimatorManager.anim.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
@@ -77,6 +80,9 @@ public class EnemyLocomotionManager : MonoBehaviour
                 enemyAnimatorManager.anim.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
             }
         }
+        HandleRotateTowardsTarget();
+        navMeshAgent.transform.localPosition = Vector3.zero;
+        navMeshAgent.transform.localRotation = Quaternion.identity;
     }
     
 

@@ -9,8 +9,8 @@ public class EnemyManager : CharacterManager
     [Header("A.I Settings")]
     public float detectionRadius = 20;
     // THe higher, and lower, respectively these angles are , the greater detection FOV
-    public float maximumDetectionAngle = 50;
-    public float minimumDetectionAngle = -50;
+    public float maximumDetectionAngle = -50;
+    public float minimumDetectionAngle = 50;
     private void Awake()
     {
         enemyLocomotionManager = GetComponent<EnemyLocomotionManager>();
@@ -24,8 +24,6 @@ public class EnemyManager : CharacterManager
     private void FixedUpdate()
     {
         HandleCurrentActions();
-
-        
     }
 
     private void HandleCurrentActions()

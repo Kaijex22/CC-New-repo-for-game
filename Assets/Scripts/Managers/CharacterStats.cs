@@ -11,4 +11,5 @@ public class CharacterStats : MonoBehaviour
     public int maxStamina;
     public int currentStanima;
     public int staminaLevel = 10;
+    
 }
