@@ -203,6 +203,7 @@ public class InputHandler : MonoBehaviour
     {
         if(lockOnInput && lockOnFlag == false)
         {
+            cameraHandler.ClearLockOnTargets();
             lockOnInput = false;
             lockOnFlag = true;
             
@@ -217,7 +218,7 @@ public class InputHandler : MonoBehaviour
         {
             lockOnInput = false;
             lockOnFlag = false;
-            // clear lock on targets
+            cameraHandler.ClearLockOnTargets();
         }
     }
 }

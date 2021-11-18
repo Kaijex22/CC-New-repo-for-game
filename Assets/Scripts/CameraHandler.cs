@@ -158,5 +158,6 @@ public class CameraHandler : MonoBehaviour
     {
         availableTargets.Clear();
         currentLockOnTarget = null;
+        
     }
 }
