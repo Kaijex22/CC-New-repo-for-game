@@ -39,6 +39,7 @@ public class EnemyStats : CharacterStats
         if(currentHealth <= 0)
         {
             currentHealth = 0;
+            model.SetActive(false);
             animator.Play("Dead_01");
             Die();
             
@@ -49,6 +50,6 @@ public class EnemyStats : CharacterStats
     public void Die()
     {
         Debug.Log("Enemy Died");
-        model.SetActive(false);
+        
     }
 }
