@@ -55,5 +55,8 @@ public class PlayerStats : CharacterStats
         currentStanima = currentStanima - damage;
         staminaBar.SetCurrentStamina(currentStanima);
     }
+
   
+
+
 }

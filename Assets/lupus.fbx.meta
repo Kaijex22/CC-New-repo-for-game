@@ -3,7 +3,32 @@ guid: 32f2155bcd8a56a468bdeae7e797189d
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_LupusFur_00
+    second: {fileID: 2100000, guid: b02a2487eda9d1f4e9152c0805438a96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Lupus_Body_00
+    second: {fileID: 2100000, guid: 9d2148eac77da294580467ba70df0855, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Lupus_Eye
+    second: {fileID: 2100000, guid: d63be0918eb295c469c0707ced38b7cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Lupus_EyesOcclusion
+    second: {fileID: 2100000, guid: 92d15fcc19f6de641813a18394ea477e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Lupus_Mouth
+    second: {fileID: 2100000, guid: 6dd3631ddccdceb44bced8b25c0da5d8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

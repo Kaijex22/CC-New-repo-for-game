@@ -4750,6 +4750,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 657172693}
+  - component: {fileID: 657172694}
   m_Layer: 0
   m_Name: Mouth
   m_TagString: Untagged
@@ -4765,12 +4766,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657172692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.723, z: 0.488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7621154669496644592}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &657172694
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657172692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.37203026, y: 0.28185827, z: 0.46762848}
+  m_Center: {x: -0.009101868, y: -0.027349263, z: 0.031128883}
 --- !u!1001 &671596756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18616,6 +18630,7 @@ GameObject:
   - component: {fileID: 7099950546099398989}
   - component: {fileID: 7099950546099398988}
   - component: {fileID: 7099950546099398987}
+  - component: {fileID: 7099950546099398992}
   m_Layer: 0
   m_Name: Wolf Enemy
   m_TagString: Enemy
@@ -18706,6 +18721,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7099950546099398992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099950546099398986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fcbba3004f70045b5e44492193999d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouth: {fileID: 657172692}
+  playerModel: {fileID: 806360392}
 --- !u!1 &7112587218849373935
 GameObject:
   m_ObjectHideFlags: 0

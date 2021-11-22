@@ -40,8 +40,15 @@ public class EnemyStats : CharacterStats
         {
             currentHealth = 0;
             animator.Play("Dead_01");
-            Destroy(model);
+            Die();
+            
             //Handle player death
         }
+    }
+
+    public void Die()
+    {
+        Debug.Log("Enemy Died");
+        model.SetActive(false);
     }
 }
