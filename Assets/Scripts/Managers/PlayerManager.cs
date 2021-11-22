@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerManager : CharacterManager
 {
-    
+
     InputHandler inputHandler;
     Animator anim;
     public bool isInAir;
@@ -16,7 +16,7 @@ public class PlayerManager : CharacterManager
     public bool canDoCombo;
     public GameObject interactableUiGameObject;
 
-  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class PlayerManager : CharacterManager
         anim = GetComponentInChildren<Animator>();
         playerLocomotive = GetComponent<PlayerLocomotive>();
         interactableUI = FindObjectOfType<InteractableUI>();
-        
+
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class PlayerManager : CharacterManager
 
     private void LateUpdate()
     {
-        if(isInAir)
+        if (isInAir)
         {
             playerLocomotive.inAirTimer = playerLocomotive.inAirTimer + Time.deltaTime;
         }
@@ -63,12 +63,12 @@ public class PlayerManager : CharacterManager
     {
         RaycastHit hit;
 
-        if(Physics.SphereCast(transform.position, 0.3f, transform.forward, out hit, 1f, cameraHandler.ignoreLayers))
+        if (Physics.SphereCast(transform.position, 0.3f, transform.forward, out hit, 1f, cameraHandler.ignoreLayers))
         {
-            if(hit.collider.tag == "Interactable")
+            if (hit.collider.tag == "Interactable")
             {
                 Interactable interactableObject = hit.collider.GetComponent<Interactable>();
-                if(interactableObject != null)
+                if (interactableObject != null)
                 {
                     string interactableText = interactableObject.interactableText;
                     interactableUI.InteractableText.text = interactableText;
@@ -84,10 +84,25 @@ public class PlayerManager : CharacterManager
         }
         else
         {
-            if(interactableUiGameObject != null)
+            if (interactableUiGameObject != null)
             {
                 interactableUiGameObject.SetActive(false);
             }
         }
     }
+
+
+    #region Singleton
+
+    public static PlayerManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    #endregion
+
+    public GameObject player;
+
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyStats : CharacterStats
 {
-
+    public GameObject model;
 
 
     
@@ -40,7 +40,7 @@ public class EnemyStats : CharacterStats
         {
             currentHealth = 0;
             animator.Play("Dead_01");
-            gameObject.SetActive(false);
+            Destroy(model);
             //Handle player death
         }
     }

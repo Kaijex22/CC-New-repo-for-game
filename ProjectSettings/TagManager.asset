@@ -19,12 +19,12 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Enemy
-  - Breadcrumb
-  - Waypoint
-  - Bullet
-  - Spit
+  - Environment
+  - Character
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

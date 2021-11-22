@@ -2,44 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : CharacterManager
-{
-    EnemyLocomotionManager enemyLocomotionManager;
-    public bool isPerformingAction;
-    [Header("A.I Settings")]
-    public float detectionRadius = 20;
-    // THe higher, and lower, respectively these angles are , the greater detection FOV
-    public float maximumDetectionAngle = -50;
-    public float minimumDetectionAngle = 50;
-    private void Awake()
-    {
-        enemyLocomotionManager = GetComponent<EnemyLocomotionManager>();
-    }
 
-    private void Update()
+    public class EnemyManager : CharacterManager
     {
-        
-    }
+        EnemyLocomotionManager enemyLocomotionManager;
+        public bool isPreformingAction;
 
-    private void FixedUpdate()
-    {
-        HandleCurrentActions();
-    }
+        [Header("A.I Settings")]
+        public float detectionRadius = 20;
+        //The higher, and lower, respectively these angles are, the greater detection FIELD OF VIEW (basically like eye sight)
+        public float maximumDetectionAngle = 50;
+        public float minimumDetectionAngle = -50;
 
-    private void HandleCurrentActions()
-    {
-        if(enemyLocomotionManager.currentTarget = null)
+        private void Awake()
         {
-            enemyLocomotionManager.HandleDetection();
+            enemyLocomotionManager = GetComponent<EnemyLocomotionManager>();
         }
-        else
+
+        private void Update()
         {
-            enemyLocomotionManager.HandleMoveToTarget();
+            HandleCurrentAction();
+        }
+
+        private void HandleCurrentAction()
+        {
+            if (enemyLocomotionManager.currentTarget == null)
+            {
+                enemyLocomotionManager.HandleDetection();
+            }
         }
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red; //replace red with whatever color you prefer
-        Gizmos.DrawWireSphere(transform.position, detectionRadius);
-    }
-}
