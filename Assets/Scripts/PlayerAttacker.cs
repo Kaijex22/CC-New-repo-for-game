@@ -6,15 +6,19 @@ public class PlayerAttacker : MonoBehaviour
 {
 
     AnimatorHandler animatorHandler;
+    PlayerEquipmentManager playerEquipmentManager;
     public string lastAttack;
     InputHandler inputHandler;
     WeaponSlotManager weaponSlotManager;
+    public PlayerManager playerManager;
 
     private void Awake()
     {
         animatorHandler = GetComponentInChildren<AnimatorHandler>();
         inputHandler = GetComponent<InputHandler>();
         weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
+
+        playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
     }
 
     public void HandleWeaponCombo(WeaponItem weapon)
@@ -29,6 +33,10 @@ public class PlayerAttacker : MonoBehaviour
         }
         
     }
+    public void HandleLBAction()
+    {
+        PerformLBBlockingAction();
+    }
     public void HandleLightAttack(WeaponItem weapon)
     {
         weaponSlotManager.attackingWeapon = weapon;
@@ -41,4 +49,21 @@ public class PlayerAttacker : MonoBehaviour
         animatorHandler.PlayTargetAnimation(weapon.OH_Heavy_Attack_1, true);
         lastAttack = weapon.OH_Heavy_Attack_1;
     }
+    #region Defense actions
+    private void PerformLBBlockingAction()
+    {
+        if (inputHandler.isInteracting)
+        {
+            return;
+        }
+        if (playerManager.isBlocking)
+        {
+            return;
+        }
+
+        animatorHandler.PlayTargetAnimation("Block Start", false, true);
+        playerEquipmentManager.OpenBlockingCollider();
+        playerManager.isBlocking = true;
+    }
+    #endregion
 }

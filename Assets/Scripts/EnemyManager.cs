@@ -21,14 +21,8 @@ using UnityEngine;
 
         private void Update()
         {
-            HandleCurrentAction();
+            
         }
 
-        private void HandleCurrentAction()
-        {
-            if (enemyLocomotionManager.currentTarget == null)
-            {
-                enemyLocomotionManager.HandleDetection();
-            }
-        }
+       
     }

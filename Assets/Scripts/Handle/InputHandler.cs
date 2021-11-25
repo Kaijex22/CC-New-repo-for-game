@@ -15,6 +15,7 @@ public class InputHandler : MonoBehaviour
     public bool a_Input;
     public bool rb_Input;
     public bool rt_Input;
+    public bool lb_Input;
     public bool jump_input;
     public bool inventory_Input;
     public bool lockOnInput;
@@ -39,7 +40,10 @@ public class InputHandler : MonoBehaviour
     PlayerAttacker playerAttacker;
     PlayerInventory playerInventory;
     PlayerManager playerManager;
+    BlockingCollider blockingCollider;
     UIManager uIManager;
+    InputHandler inputHandler;
+    AnimatorHandler animatorHandler;
 
     Vector2 movementInput;
     Vector2 camerInput;
@@ -50,6 +54,9 @@ public class InputHandler : MonoBehaviour
         playerInventory = GetComponent<PlayerInventory>();
         playerManager = GetComponent<PlayerManager>();
         uIManager = FindObjectOfType<UIManager>();
+        animatorHandler = GetComponent<AnimatorHandler>();
+        inputHandler = GetComponent<InputHandler>();
+        blockingCollider = GetComponentInChildren<BlockingCollider>();
     }
     private void FixedUpdate()
     {
@@ -68,6 +75,8 @@ public class InputHandler : MonoBehaviour
             inputActions.PlayerMovement.Movement.performed += inputActions => movementInput = inputActions.ReadValue<Vector2>();
             inputActions.PlayerMovement.Camera.performed += i => camerInput = i.ReadValue<Vector2>();
             inputActions.PlayerActions.LockOn.performed += i => lockOnInput = true;
+            inputActions.PlayerActions.LB.performed += i => lb_Input = true;
+            inputActions.PlayerActions.LB.canceled += i => lb_Input = false;
         }
 
         inputActions.Enable();
@@ -87,6 +96,7 @@ public class InputHandler : MonoBehaviour
         HandleJumpInput();
         HandleInventoryInput();
         HandleLockOnInput();
+        
     }
     public void MoveInput(float delta)
     {
@@ -147,6 +157,21 @@ public class InputHandler : MonoBehaviour
         if (rt_Input)
         {
             playerAttacker.HandleHeavyAttack(playerInventory.rightWeapon);
+        }
+        if (lb_Input)
+        {
+            
+            playerAttacker.HandleLBAction();
+           
+        }
+        else
+        {
+            playerManager.isBlocking = false;
+
+            if (blockingCollider.blockingCollider.enabled)
+            {
+                blockingCollider.DisableBlockingCollider();
+            }
         }
     }
 
@@ -221,4 +246,7 @@ public class InputHandler : MonoBehaviour
             cameraHandler.ClearLockOnTargets();
         }
     }
+   
+
+   
 }

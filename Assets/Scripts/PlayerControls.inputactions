@@ -161,6 +161,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "LB",
+                    "type": "Button",
+                    "id": "05dd925b-4a6f-4b56-9434-3aa58adfffca",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -189,7 +197,7 @@
                 {
                     "name": "",
                     "id": "916710b4-088e-481f-82d2-7b25274bb3b1",
-                    "path": "<Keyboard>/e",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -200,7 +208,7 @@
                 {
                     "name": "",
                     "id": "47b7b280-e246-4eb8-8555-ba3b243cd7f2",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -244,11 +252,22 @@
                 {
                     "name": "",
                     "id": "30ac21cc-a7bf-4d31-8067-090e1200b0d1",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/leftAlt",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3feaa806-34b6-41db-b561-b8a9bad86968",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -31,7 +31,9 @@ public class DamageCollider : MonoBehaviour
         if (collision.tag == "Player")
         {
             PlayerStats player = collision.GetComponent<PlayerStats>();
+            BlockingCollider sword = collision.transform.GetComponentInChildren<BlockingCollider>();
 
+            
 
             if (playerStats != null)
             {

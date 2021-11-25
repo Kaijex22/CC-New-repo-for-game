@@ -10,7 +10,8 @@ public class WeaponItem : Item
 
     public GameObject modelPrefab;
     public bool isUnarmed;
-
+    [Header("Absorption")]
+    public float physicalDamageAbsorption;
 
     [Header("One Handed Attack Animations")]
 

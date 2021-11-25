@@ -15,7 +15,7 @@ public class PlayerManager : CharacterManager
 
     public bool canDoCombo;
     public GameObject interactableUiGameObject;
-
+    public bool isBlocking;
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +33,12 @@ public class PlayerManager : CharacterManager
         float delta = Time.fixedDeltaTime;
         canDoCombo = anim.GetBool("canDoCombo");
         anim.SetBool("isInAir", isInAir);
+        anim.SetBool("isBlocking", isBlocking);
         inputHandler.isInteracting = anim.GetBool("isInteracting");
         inputHandler.rollFlag = false;
         inputHandler.sprintFlag = false;
         playerLocomotive.HandleFalling(delta, playerLocomotive.moveDirection);
-        CheckForInteractableObject();
+       
 
         playerLocomotive.HandleJumping();
 
@@ -59,37 +60,8 @@ public class PlayerManager : CharacterManager
         inputHandler.jump_input = false;
         inputHandler.inventory_Input = false;
     }
-    public void CheckForInteractableObject()
-    {
-        RaycastHit hit;
-
-        if (Physics.SphereCast(transform.position, 0.3f, transform.forward, out hit, 1f, cameraHandler.ignoreLayers))
-        {
-            if (hit.collider.tag == "Interactable")
-            {
-                Interactable interactableObject = hit.collider.GetComponent<Interactable>();
-                if (interactableObject != null)
-                {
-                    string interactableText = interactableObject.interactableText;
-                    interactableUI.InteractableText.text = interactableText;
-                    interactableUiGameObject.SetActive(true);
-
-
-                    if (inputHandler.a_Input)
-                    {
-                        hit.collider.GetComponent<Interactable>().Interact(this);
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (interactableUiGameObject != null)
-            {
-                interactableUiGameObject.SetActive(false);
-            }
-        }
-    }
+   
+     
 
 
     #region Singleton
