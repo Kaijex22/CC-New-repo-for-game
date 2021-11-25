@@ -265,7 +265,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""30ac21cc-a7bf-4d31-8067-090e1200b0d1"",
-                    ""path"": ""<Keyboard>/leftAlt"",
+                    ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
