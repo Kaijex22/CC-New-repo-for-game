@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-    public class EnemyManager : CharacterManager
+ public class EnemyManager : CharacterManager
     {
-        EnemyLocomotionManager enemyLocomotionManager;
-        public bool isPreformingAction;
+        EnemyLocomotiveManager enemyLocomotionManager;
+        bool isPreformingAction;
 
         [Header("A.I Settings")]
         public float detectionRadius = 20;
@@ -16,13 +15,19 @@ using UnityEngine;
 
         private void Awake()
         {
-            enemyLocomotionManager = GetComponent<EnemyLocomotionManager>();
+            enemyLocomotionManager = GetComponent<EnemyLocomotiveManager>();
         }
 
         private void Update()
         {
-            
+            HandleCurrentAction();
         }
 
-       
+        private void HandleCurrentAction()
+        {
+            if (enemyLocomotionManager.currentTarget == null)
+            {
+                enemyLocomotionManager.HandleDetection();
+            }
+        }
     }
