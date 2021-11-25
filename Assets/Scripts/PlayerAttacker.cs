@@ -61,7 +61,7 @@ public class PlayerAttacker : MonoBehaviour
             return;
         }
 
-        animatorHandler.PlayTargetAnimation("Block Start", false, true);
+        animatorHandler.PlayTargetAnimation("Block Start", false);
         playerEquipmentManager.OpenBlockingCollider();
         playerManager.isBlocking = true;
     }
