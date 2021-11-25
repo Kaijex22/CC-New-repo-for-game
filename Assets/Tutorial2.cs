@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tutorial2 : MonoBehaviour
 {
     public GameObject infoPanel2;
+    public GameObject infopanel1disable;
     Tutorial1 tutorial1;
     private void Awake()
     {
@@ -15,6 +16,6 @@ public class Tutorial2 : MonoBehaviour
     {
         infoPanel2.SetActive(true);
 
-        tutorial1.infoPanel1.SetActive(false);
+        infopanel1disable.SetActive(false);
     }
 }

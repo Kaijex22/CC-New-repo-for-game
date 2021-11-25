@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tut3 : MonoBehaviour
 {
     public GameObject infoPanel3;
+    public GameObject infoPanel2disable;
     Tutorial2 tutorial2;
 
     private void Awake()
@@ -14,8 +15,12 @@ public class Tut3 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         infoPanel3.SetActive(true);
-        tutorial2.infoPanel2.SetActive(false);
+        infoPanel2disable.SetActive(false);
     
 }
+    private void OnTriggerExit(Collider other)
+    {
+        infoPanel3.SetActive(false);
+    }
 }
 
