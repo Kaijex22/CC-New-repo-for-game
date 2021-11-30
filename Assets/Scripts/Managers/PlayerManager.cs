@@ -16,6 +16,8 @@ public class PlayerManager : CharacterManager
     public bool canDoCombo;
     public GameObject interactableUiGameObject;
     public bool isBlocking;
+    public bool isUsingRightHand;
+    public bool isUsingLeftHand;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,8 @@ public class PlayerManager : CharacterManager
         canDoCombo = anim.GetBool("canDoCombo");
         anim.SetBool("isInAir", isInAir);
         anim.SetBool("isBlocking", isBlocking);
+        isUsingRightHand = anim.GetBool("isUsingRightHand");
+        isUsingLeftHand = anim.GetBool("isUsingLeftHand");
         inputHandler.isInteracting = anim.GetBool("isInteracting");
         inputHandler.rollFlag = false;
         inputHandler.sprintFlag = false;

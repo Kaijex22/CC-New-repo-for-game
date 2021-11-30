@@ -12,7 +12,7 @@ public class WeaponSlotManager : MonoBehaviour
 
     public WeaponItem attackingWeapon;
     QuickSlotsUi quickSlotsUi;
-
+    PlayerManager playerManager;
     PlayerStats playerStats;
 
     private void Awake()
@@ -62,12 +62,21 @@ public class WeaponSlotManager : MonoBehaviour
     }
     public void OpenRightDamageCollider()
     {
-        rightHandDamageCollider.EnableDamageCollider();
+        if (playerManager.isUsingRightHand)
+        {
+            rightHandDamageCollider.EnableDamageCollider();
+        }
+        else if (playerManager.isUsingLeftHand)
+        {
+            leftHandDamageCollider.EnableDamageCollider();
+        }
+        
     }
 
     public void CloseRightHandDamageCollider()
     {
         rightHandDamageCollider.DisableDamageCollider();
+        leftHandDamageCollider.DisableDamageCollider();
     }
     #endregion
     #region Handle Weapon Stamina Drainage
