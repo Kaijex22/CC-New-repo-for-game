@@ -19269,6 +19269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7398547591516820155}
   - component: {fileID: 337530030}
+  - component: {fileID: 1339622706646688972}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -19276,6 +19277,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1339622706646688972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339622706646688971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258e8ca2271a2cd48b1cdb5237cc54fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeaponDamage: 25
 --- !u!1 &1339622707261302873
 GameObject:
   m_ObjectHideFlags: 0
