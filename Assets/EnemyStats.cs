@@ -7,6 +7,8 @@ using UnityEngine;
     {
         Animator animator;
 
+    public UIEnemyHealthBar enemyHealthBar;
+
         private void Awake()
         {
             animator = GetComponentInChildren<Animator>();
@@ -22,11 +24,14 @@ using UnityEngine;
         {
             maxHealth = healthLevel * 10;
             return maxHealth;
+        
         }
 
         public void TakeDamage(int damage)
         {
             currentHealth = currentHealth - damage;
+
+        
 
             animator.Play("Damage_01");
 
