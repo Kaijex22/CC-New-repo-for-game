@@ -12,9 +12,11 @@ public class EnemyWeaponSlotManager : MonoBehaviour
 
     DamageCollider leftHandDamageCollider;
     DamageCollider rightHandDamageCollider;
+    EnemyStats enemyStats;
 
     private void Awake()
     {
+        enemyStats = GetComponent<EnemyStats>();
         WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
         foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
         {
@@ -74,15 +76,24 @@ public class EnemyWeaponSlotManager : MonoBehaviour
         }
     }
 
-    public void OpenDamageCollider()
+    public void OpenRightDamageCollider()
     {
+
         rightHandDamageCollider.EnableDamageCollider();
+
+
+        leftHandDamageCollider.EnableDamageCollider();
+
+
     }
 
-    public void CloseDamageCollider()
+    public void CloseRightHandDamageCollider()
     {
         rightHandDamageCollider.DisableDamageCollider();
+        leftHandDamageCollider.DisableDamageCollider();
+    
     }
-
    
+
+
 }
