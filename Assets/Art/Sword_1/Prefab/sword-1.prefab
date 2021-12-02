@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258e8ca2271a2cd48b1cdb5237cc54fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeaponDamage: 25
+  currentWeaponDamage: 10
 --- !u!1 &1998828866743092222
 GameObject:
   m_ObjectHideFlags: 0

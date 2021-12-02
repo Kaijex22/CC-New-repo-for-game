@@ -39,7 +39,9 @@ public class EnemyStats : CharacterStats
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            
             animator.Play("Dead_01");
+            Destroy(gameObject, 10);
 
 
 
