@@ -2,32 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[RequireComponent(typeof(AudioSource))]
-public class RollSound : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioClip[] audioClip;
-
-
+    [SerializeField]
+    private AudioClip[] clips;
     private AudioSource audioSource;
-
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    //event animation
-    private void Roll()
+    private void Step()
     {
         AudioClip clip = GetRandomClip();
         audioSource.PlayOneShot(clip);
     }
+
     private AudioClip GetRandomClip()
     {
-        int index = Random.Range(0, audioClip.Length - 1);
-        return audioClip[index];
+        return clips[UnityEngine.Random.Range(0, clips.Length)];
     }
+
 }
-
-

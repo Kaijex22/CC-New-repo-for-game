@@ -9,10 +9,12 @@ public class EnemyStats : CharacterStats
 
 
     public UIEnemyHealthBar enemyHealthBar;
+    InputHandler inputHandler;
 
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        inputHandler = GetComponent<InputHandler>();
     }
 
     void Start()
@@ -41,7 +43,9 @@ public class EnemyStats : CharacterStats
             currentHealth = 0;
             
             animator.Play("Dead_01");
+            
             Destroy(gameObject, 10);
+            
 
 
 
