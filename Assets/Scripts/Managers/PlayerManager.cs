@@ -63,6 +63,7 @@ public class PlayerManager : CharacterManager
         inputHandler.a_Input = false;
         inputHandler.jump_input = false;
         inputHandler.inventory_Input = false;
+        
     }
    
      

@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scenes/Final Lava level.unity
     guid: 6f720aa8732552d4988e5b8aa58a2ae7
+  - enabled: 1
+    path: Assets/Scenes/Scenes/BossFIght.unity
+    guid: c7e7d87fe1759474e9ebdff318dd0178
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a886abe677b4e134daf20126e81ae6f5, type: 2}

@@ -11,6 +11,9 @@ public class PlayerStats : CharacterStats
     public StaminaBar staminaBar;
     AnimatorHandler animatorHandler;
 
+    
+    
+
     private void Awake()
     {
         animatorHandler = GetComponentInChildren<AnimatorHandler>();
@@ -23,6 +26,7 @@ public class PlayerStats : CharacterStats
         healthBar.SetMaxHealth(maxHealth);
         maxStamina = SetMaxStaminaFromStaminaLevel();
         currentStanima = maxStamina;
+        
     }
 
     private int SetMaxHealthFromHealthLevel()
