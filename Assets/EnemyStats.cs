@@ -34,7 +34,7 @@ public class EnemyStats : CharacterStats
     {
         currentHealth = currentHealth - damage;
 
-
+        FindObjectOfType<AudioManager>().Play("SwordSwing");
 
         animator.Play("Damage_01");
 
@@ -43,7 +43,8 @@ public class EnemyStats : CharacterStats
             currentHealth = 0;
             
             animator.Play("Dead_01");
-            
+            FindObjectOfType<AudioManager>().Play("PlayerDeath");
+
             Destroy(gameObject, 10);
             
 

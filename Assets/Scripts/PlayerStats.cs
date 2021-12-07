@@ -45,6 +45,7 @@ public class PlayerStats : CharacterStats
         currentHealth = currentHealth - damage;
 
         healthBar.SetCurrentHealth(currentHealth);
+        FindObjectOfType<AudioManager>().Play("SwordSwing");
 
         animatorHandler.PlayTargetAnimation("Damage_01", true);
 

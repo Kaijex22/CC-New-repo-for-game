@@ -183,11 +183,13 @@ public class InputHandler : MonoBehaviour
         if (d_Pad_Right)
         {
             playerInventory.ChangeRightWeapon();
+            FindObjectOfType<AudioManager>().Play("SwordEquip");
         }
 
         else if (d_Pad_Left)
         {
             playerInventory.ChangeLeftWeapon();
+            FindObjectOfType<AudioManager>().Play("SwordEquip");
         }
     }
     private void HandleInteractableButtonInput()
