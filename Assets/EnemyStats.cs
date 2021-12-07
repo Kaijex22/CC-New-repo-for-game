@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class EnemyStats : CharacterStats
 {
     Animator animator;
-
+    EnemyManager enemyManager;
 
     public UIEnemyHealthBar enemyHealthBar;
     InputHandler inputHandler;
@@ -15,6 +16,7 @@ public class EnemyStats : CharacterStats
     {
         animator = GetComponentInChildren<Animator>();
         inputHandler = GetComponent<InputHandler>();
+        enemyManager = GetComponent<EnemyManager>();
     }
 
     void Start()
@@ -44,8 +46,9 @@ public class EnemyStats : CharacterStats
             
             animator.Play("Dead_01");
             FindObjectOfType<AudioManager>().Play("PlayerDeath");
-
-            Destroy(gameObject, 10);
+            enemyManager.navmeshAgent.enabled = false;
+            
+            Destroy(gameObject, 4);
             
 
 

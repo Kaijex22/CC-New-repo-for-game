@@ -985,7 +985,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: SwordSwing
     clip: {fileID: 8300000, guid: d02380170abde3f4aa3e1cf1a04a55cd, type: 3}
-    volume: 0.125
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -3248,7 +3248,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh101092
+  m_Name: pb_Mesh59372
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

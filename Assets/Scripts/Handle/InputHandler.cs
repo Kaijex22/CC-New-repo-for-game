@@ -105,6 +105,8 @@ public class InputHandler : MonoBehaviour
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontal) + Mathf.Abs(verticle));
         mouseX = camerInput.x;
         mouseY = camerInput.y;
+        
+
     }
     private void HandleRollInput(float delta)
     {
