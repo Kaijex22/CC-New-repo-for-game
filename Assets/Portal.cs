@@ -8,5 +8,6 @@ public class Portal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         SceneManager.LoadScene("Level 1");
+        FindObjectOfType<AudioManager>().Play("Portal");
     }
 }
