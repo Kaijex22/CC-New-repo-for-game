@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 9e4efc74f54412d408f2e7ac7149b86d, type: 3}
   itemName: Brute Fist
-  modelPrefab: {fileID: 1998828866743092222, guid: ddfa7f0dadac78f4b85e93ae5045ca7b, type: 3}
+  modelPrefab: {fileID: 4018824523847226431, guid: 7d116d1048cf9de418812ea53b35bc66, type: 3}
   isUnarmed: 0
   physicalDamageAbsorption: 0
   OH_Light_Attack_1: OH_Light_Attack_01

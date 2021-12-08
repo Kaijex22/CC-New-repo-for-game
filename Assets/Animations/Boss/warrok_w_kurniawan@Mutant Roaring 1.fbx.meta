@@ -1,32 +1,12 @@
 fileFormatVersion: 2
-guid: d3eceef0f8e94624f877ef7a99ef1ac3
+guid: 1dd08096e5d004d4abd5d06a93c17bb9
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: bear_alpha
-    second: {fileID: 2800000, guid: b570deae5acc85547b6890f57538fdd0, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: bear_diffuse
-    second: {fileID: 2800000, guid: 68f5559841380de469be5614670bbe8e, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: bear_normal
-    second: {fileID: 2800000, guid: 9859a9880ba1dfd42ba3415e637debaa, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: bear_specular
-    second: {fileID: 2800000, guid: bb593f4a3ec3ddf468436f9e8a6bf41b, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -95,14 +75,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 9c812329338e6d442b244723e4c5fe1e
-  - 3e6e9d35d6712874a9f6d2068589a2c6
-  - 3df1d965d6c5bfc4fb2eebaef05347fd
-  - 1dd08096e5d004d4abd5d06a93c17bb9
-  - 988d3c6fbb9d9234887acb7744d45729
-  - 31d2f49f7b10f654297fa37098b32a31
-  - de6d0cf8274cd294883cb9558528e135
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -871,11 +844,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d3eceef0f8e94624f877ef7a99ef1ac3, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 

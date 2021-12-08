@@ -54,7 +54,7 @@ public class PlayerStats : CharacterStats
             currentHealth = 0;
             animatorHandler.PlayTargetAnimation("Dead_01", true);
             
-            SceneManager.LoadScene("SampleScene");
+            
             
         }
     }
