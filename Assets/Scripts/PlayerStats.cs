@@ -11,7 +11,7 @@ public class PlayerStats : CharacterStats
     public StaminaBar staminaBar;
     AnimatorHandler animatorHandler;
 
-    
+    int potion = 10;
     
 
     private void Awake()
@@ -62,6 +62,13 @@ public class PlayerStats : CharacterStats
     {
         currentStanima = currentStanima - damage;
         staminaBar.SetCurrentStamina(currentStanima);
+    }
+
+    public void Potion(int currentHealth)
+    {
+        currentHealth = currentHealth + potion;
+
+        healthBar.SetCurrentHealth(currentHealth);
     }
 
   

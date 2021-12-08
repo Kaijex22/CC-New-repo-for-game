@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 
 public class EnemyStats : CharacterStats
@@ -9,20 +10,37 @@ public class EnemyStats : CharacterStats
     Animator animator;
     EnemyManager enemyManager;
 
+    EnemyBossManager enemyBossManager;
+
     public UIEnemyHealthBar enemyHealthBar;
     InputHandler inputHandler;
+
+    public bool isBoss;
+    private float delayBeforeLoading = 6f;
+
+    private float timeElapsed;
 
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
         inputHandler = GetComponent<InputHandler>();
         enemyManager = GetComponent<EnemyManager>();
+        maxHealth = SetMaxHealthFromHealthLevel();
+        currentHealth = maxHealth;
+        enemyBossManager = GetComponent<EnemyBossManager>();
+        if (isBoss == true)
+        {
+            isDead();
+        }
     }
 
     void Start()
     {
-        maxHealth = SetMaxHealthFromHealthLevel();
-        currentHealth = maxHealth;
+        
+        if (!isBoss)
+        {
+            maxHealth = SetMaxHealthFromHealthLevel();
+        }
     }
 
     private int SetMaxHealthFromHealthLevel()
@@ -35,6 +53,12 @@ public class EnemyStats : CharacterStats
     public void TakeDamage(int damage)
     {
         currentHealth = currentHealth - damage;
+
+        
+        if (isBoss && enemyBossManager != null)
+        {
+            enemyBossManager.UpdateBossHealth(currentHealth);
+        }
 
         FindObjectOfType<AudioManager>().Play("SwordSwing");
 
@@ -50,11 +74,29 @@ public class EnemyStats : CharacterStats
             
             Destroy(gameObject, 4);
             
+            
 
 
 
 
         }
     }
-    
+    public void isDead()
+    {
+
+        if (currentHealth == 0)
+        {
+            FindObjectOfType<AudioManager>().Play("Boss Death");
+            
+
+            timeElapsed += Time.deltaTime;
+
+            if (timeElapsed > delayBeforeLoading)
+            {
+                SceneManager.LoadScene("Credits");
+            }
+
+        }
+    }
+
 }
