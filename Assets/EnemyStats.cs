@@ -17,6 +17,9 @@ public class EnemyStats : CharacterStats
 
     public bool isBoss;
     private float delayBeforeLoading = 6f;
+    EnemyAnimatorManager enemyAnimator;
+
+    
 
     private float timeElapsed;
 
@@ -28,6 +31,8 @@ public class EnemyStats : CharacterStats
         maxHealth = SetMaxHealthFromHealthLevel();
         currentHealth = maxHealth;
         enemyBossManager = GetComponent<EnemyBossManager>();
+
+        enemyAnimator = GetComponentInChildren<EnemyAnimatorManager>();
         if (isBoss == true)
         {
             isDead();

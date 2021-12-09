@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Portal2 : MonoBehaviour
 {
     public GameObject portal;
@@ -12,11 +12,10 @@ public class Portal2 : MonoBehaviour
     {
         enemyStats = GetComponent<EnemyStats>();
     }
-    public void portalappear()
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(enemyStats.currentHealth <= 0)
-        {
-            portal.SetActive(true);
-        }
+        SceneManager.LoadScene("Final Lava level");
     }
 }
