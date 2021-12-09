@@ -11,6 +11,13 @@ public class PlayerStats : CharacterStats
     public StaminaBar staminaBar;
     AnimatorHandler animatorHandler;
 
+
+    public bool isTutorial;
+    public bool isBossLevel;
+    public bool isLevel1;
+    public bool isLava;
+
+
     int potion = 10;
     
 
@@ -54,7 +61,24 @@ public class PlayerStats : CharacterStats
             currentHealth = 0;
             animatorHandler.PlayTargetAnimation("Dead_01", true);
             
-            
+            if(isBossLevel == true)
+            {
+                FindObjectOfType<AudioManager>().Play("PlayerDeath");
+
+                SceneManager.LoadScene("BossFight");
+            }
+            else if (isTutorial == true)
+            {
+                SceneManager.LoadScene("SampleScene");
+            }
+            else if (isLevel1 == true)
+            {
+                SceneManager.LoadScene("Level 1");
+            }
+            else if (isLava == true)
+            {
+                SceneManager.LoadScene("Final Lava level");
+            }
             
         }
     }

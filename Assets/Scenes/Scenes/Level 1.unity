@@ -59039,6 +59039,10 @@ MonoBehaviour:
   staminaLevel: 10
   healthBar: {fileID: 5308419444590437058}
   staminaBar: {fileID: 2216939471039217524}
+  isTutorial: 0
+  isBossLevel: 0
+  isLevel1: 1
+  isLava: 0
 --- !u!95 &7880085305906415696
 Animator:
   serializedVersion: 3

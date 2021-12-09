@@ -2400,6 +2400,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 899842880745660499, guid: fdd3446cc2b63d44fb714ae3ca931241, type: 3}
   m_PrefabInstance: {fileID: 1138161378}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &367074884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 367074885}
+  - component: {fileID: 367074887}
+  - component: {fileID: 367074886}
+  m_Layer: 0
+  m_Name: Cube (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &367074885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367074884}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 6.9789, y: 21.5902, z: 19.51}
+  m_LocalScale: {x: 27.892437, y: 18.186295, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1659165856}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!65 &367074886
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367074884}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7908251, y: 1, z: 1}
+  m_Center: {x: 0.10458916, y: 0, z: 4.4902016e-14}
+--- !u!33 &367074887
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367074884}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &378450516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8469,7 +8522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365233208}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -9.1, y: 21.611, z: 14.7}
+  m_LocalPosition: {x: -9.1, y: 25.42, z: -14.07}
   m_LocalScale: {x: 122.76893, y: 9.2725, z: 1}
   m_Children: []
   m_Father: {fileID: 1659165856}
@@ -10020,6 +10073,8 @@ Transform:
   - {fileID: 1221577481}
   - {fileID: 1365233209}
   - {fileID: 349947060}
+  - {fileID: 2129045082}
+  - {fileID: 367074885}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12796,6 +12851,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 444580, guid: 03d4692bad6ae2846b02d5e5cd5be76f, type: 3}
   m_PrefabInstance: {fileID: 771783569}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2129045081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2129045082}
+  - component: {fileID: 2129045084}
+  - component: {fileID: 2129045083}
+  m_Layer: 0
+  m_Name: Cube (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2129045082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129045081}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 21, y: 24.3726, z: -5.25}
+  m_LocalScale: {x: 104.85694, y: 7.177842, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1659165856}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &2129045083
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129045081}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7908251, y: 1, z: 1}
+  m_Center: {x: 0.10458916, y: 0, z: 4.4902016e-14}
+--- !u!33 &2129045084
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129045081}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2140058086
 GameObject:
   m_ObjectHideFlags: 0
@@ -16586,8 +16694,12 @@ MonoBehaviour:
     Lastly is combat!
 
 
-    To light attack an enemy, press
-    Left Click on your mouse.
+    To equip and de-equip your weapons.
+    Use the left and right arrow key on your keyboard.
+
+
+    To light attack an enemy,
+    press Left Click on your mouse.
 
     For a heavy attack, press F on your keyboard.
 
@@ -23739,6 +23851,10 @@ MonoBehaviour:
   staminaLevel: 100
   healthBar: {fileID: 1225251361}
   staminaBar: {fileID: 6300375279718401943}
+  isTutorial: 1
+  isBossLevel: 0
+  isLevel1: 0
+  isLava: 0
 --- !u!114 &7446876206933836991
 MonoBehaviour:
   m_ObjectHideFlags: 0
