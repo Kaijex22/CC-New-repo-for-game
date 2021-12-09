@@ -13,6 +13,6 @@ public class LavaDeath : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         playerStats.currentHealth = 0;
-        SceneManager.LoadScene("Final Lava level");
+        
     }
 }
