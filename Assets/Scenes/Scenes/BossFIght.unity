@@ -1327,6 +1327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1094581824}
+  - component: {fileID: 1094581823}
   m_Layer: 0
   m_Name: Boss Death
   m_TagString: Untagged
@@ -1334,6 +1335,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1094581823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094581822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e7ee5b56ad9c046939cd8dd3c90e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStats: {fileID: 3419472478933839125}
+  youWin: {fileID: 1425823349}
 --- !u!4 &1094581824
 Transform:
   m_ObjectHideFlags: 0
@@ -1475,7 +1490,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Boss Death
     clip: {fileID: 8300000, guid: 6d6af23c4c9ea584eaa2b17b276f8bba, type: 3}
-    volume: 1
+    volume: 0.631
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -7274,7 +7289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2f7df3d4479254ebe0636e41549f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthLevel: 1
+  healthLevel: 100
   maxHealth: 0
   currentHealth: 0
   maxStamina: 0
